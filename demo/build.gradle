@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "pl.mg6.demo.disposeondestroy"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1000000
+        versionName "1.0.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile project(":support")
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    compile "com.android.support:appcompat-v7:$support_version"
+    debugCompile "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leak_canary_version"
+}
