@@ -65,7 +65,7 @@ TODO: add examples with logic extracted into plain classes.
 
 ```groovy
 dependencies {
-    compile `TODO:core:0.1.0`
-    compile `TODO:support:0.1.0`
+    compile 'pl.mg6.rxjava2.disposeondestroy:core:0.1.0'
+    compile 'pl.mg6.rxjava2.disposeondestroy:support:0.1.0'
 }
 ```

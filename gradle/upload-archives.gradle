@@ -1,0 +1,68 @@
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group = 'pl.mg6.rxjava2.disposeondestroy'
+version = '0.1.0'
+
+signing {
+    sign configurations.archives
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+uploadArchives.repositories.mavenDeployer {
+
+    beforeDeployment {
+        MavenDeployment deployment -> signing.signPom(deployment)
+    }
+
+    repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2') {
+        authentication(userName: sonatypeUserName, password: sonatypePassword)
+    }
+    snapshotRepository(url: 'https://oss.sonatype.org/content/repositories/snapshots') {
+        authentication(userName: sonatypeUserName, password: sonatypePassword)
+    }
+
+    pom.project {
+        name 'DisposeOnDestroy'
+        description 'RxJava2 helper to dispose Disposables before leaking stuff'
+        inceptionYear '2017'
+        url 'https://github.com/mg6maciej/DisposeOnDestroy'
+        packaging 'aar'
+
+        developers {
+            developer {
+                name 'Maciej Górski'
+                id 'mg6maciej'
+                email 'maciek.gorski@gmail.com'
+                url 'https://github.com/mg6maciej'
+            }
+        }
+
+        licenses {
+            license {
+                name 'The MIT License'
+                url 'https://github.com/mg6maciej/DisposeOnDestroy/blob/master/LICENSE'
+                distribution 'repo'
+            }
+        }
+
+        scm {
+            url 'https://github.com/mg6maciej/DisposeOnDestroy'
+            connection 'scm:git:git@github.com:mg6maciej/DisposeOnDestroy.git'
+            developerConnection 'scm:git:git@github.com:mg6maciej/DisposeOnDestroy.git'
+        }
+    }
+}
