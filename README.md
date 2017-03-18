@@ -57,7 +57,8 @@ class MyFragment : Fragment() {
 }
 ```
 
-See [demo module](https://github.com/mg6maciej/DisposeOnDestroy/tree/master/demo/src/main/java/pl/mg6/demo/disposeondestroy) for working examples.
+See [demo module](https://github.com/mg6maciej/DisposeOnDestroy/tree/master/demo/src/main/java/pl/mg6/demo/disposeondestroy) for working examples
+or [some random commit](https://github.com/mg6maciej/fluffy-octo-rotary-phone/commit/86baeabec1dffa6794f9065901a9807e29a5190d) to see how to apply this little lib.
 
 TODO: add examples with logic extracted into plain classes.
 
