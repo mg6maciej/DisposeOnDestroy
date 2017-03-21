@@ -50,4 +50,10 @@ class DemoActivity : AppCompatActivity(), DemoFragment.Listener {
                 .addToBackStack(null)
                 .commit()
     }
+
+    override fun onDestroy() {
+        Log.i("DemoActivity", "before super.onDestroy")
+        super.onDestroy()
+        Log.i("DemoActivity", "after super.onDestroy")
+    }
 }

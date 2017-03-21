@@ -42,4 +42,14 @@ class DemoFragment : Fragment() {
         cancel.isEnabled = false
         deeper.isEnabled = false
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.i("DemoFragment", "after super.onDestroyView")
+    }
+
+    override fun onDestroy() {
+        Log.i("DemoFragment", "before super.onDestroy")
+        super.onDestroy()
+    }
 }
